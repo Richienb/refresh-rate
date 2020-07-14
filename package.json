@@ -1,8 +1,8 @@
 {
-	"name": "the-module",
+	"name": "refresh-rate",
 	"version": "0.0.0",
-	"description": "My awesome module.",
-	"repository": "https://github.com/Richienb/the-module.git",
+	"description": "Get the monitor refresh rate.",
+	"repository": "https://github.com/Richienb/refresh-rate.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
 	"license": "MIT",
 	"main": "index.js",
@@ -17,12 +17,26 @@
 		"lint": "xo",
 		"test": "xo && ava"
 	},
-	"keywords": [],
-	"dependencies": {},
+	"keywords": [
+		"refresh",
+		"rate",
+		"monitor",
+		"framerate",
+		"fps",
+		"detect",
+		"compute",
+		"calculate",
+		"system"
+	],
+	"dependencies": {
+		"mean-average": "^1.0.0",
+		"performance-now": "^2.1.0",
+		"raf": "^3.4.1"
+	},
 	"devDependencies": {
-		"ava": "^3.9.0",
+		"ava": "^3.10.1",
 		"eslint-config-richienb": "^0.4.2",
-		"xo": "^0.32.0"
+		"xo": "^0.32.1"
 	},
 	"xo": {
 		"extends": "richienb"

@@ -1,41 +1,42 @@
-# the-module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# refresh-rate [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/refresh-rate/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/refresh-rate)
 
-My awesome module.
+Get the monitor refresh rate.
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/refresh-rate.png)](https://npmjs.com/package/refresh-rate)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install refresh-rate
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const refreshRate = require("refresh-rate");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+(async () => {
+	console.log(await refreshRate());
+	//=> 60
+
+	console.log(await refreshRate({ sampleCount: 120 }));
+	//=> 60
+})();
 ```
 
 ## API
 
-### theModule(input, options?)
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
+### refreshRate(options?)
 
 #### options
 
 Type: `object`
 
-##### postfix
+##### sampleCount
 
-Type: `string`\
-Default: `rainbows`
+Type: `number`\
+Default: `50`
 
-Lorem ipsum.
+The amount of frame samples to take before computing the refresh rate.
+
+To compute within ±2 frames of error, 50 samples are sufficient. However, if you can afford to wait a few more seconds, 120-200 samples can be taken for a more accurate reading.

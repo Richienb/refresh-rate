@@ -1,15 +1,30 @@
+declare namespace refreshRate {
+	export interface Options {
+		/**
+		The amount of frame samples to take before computing the refresh rate.
+
+		To compute within ±2 frames of error, 50 samples are sufficient. However, if you can afford to wait a few more seconds, 120-200 samples can be taken for a more accurate reading.
+		*/
+		sampleCount?: number
+	}
+}
+
 /**
-My awesome module.
-@param input Lorem ipsum.
-@param postfix Lorem ipsum.
+Get the monitor refresh rate.
+@options The options.
 @example
 ```
-const theModule = require("the-module");
+const refreshRate = require("refresh-rate");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+(async () => {
+	console.log(await refreshRate());
+	//=> 60
+
+	console.log(await refreshRate({ sampleCount: 120 }));
+	//=> 60
+})();
 ```
 */
-declare function theModule(input: string, { postfix }: { postfix?: string }): string
+declare function refreshRate(options?: refreshRate.Options): Promise<number>
 
-export = theModule
+export = refreshRate
