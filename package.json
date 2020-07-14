@@ -1,6 +1,6 @@
 {
 	"name": "refresh-rate",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Get the monitor refresh rate.",
 	"repository": "https://github.com/Richienb/refresh-rate.git",
 	"author": "Richie Bendall <richiebendall@gmail.com>",
