@@ -2,6 +2,8 @@ const performanceNow = require("performance-now")
 const requestAnimationFrame = require("raf")
 const meanAverage = require("mean-average")
 
+const itemDifferences = array => array.map((item, index) => item - [array[index - 1]]).slice(1)
+
 const measureRefreshRate = ({ sampleCount }) => new Promise(resolve => {
 	const times = [performanceNow()]
 
@@ -11,8 +13,7 @@ const measureRefreshRate = ({ sampleCount }) => new Promise(resolve => {
 		if (times.length - 1 < sampleCount) {
 			requestAnimationFrame(eachFrame)
 		} else {
-			const averageTimeDifference = meanAverage(times.map((time, index) => time - times[index - 1]).slice(1))
-			resolve(Math.round(1000 / averageTimeDifference))
+			resolve(Math.round(1000 / meanAverage(itemDifferences(times))))
 		}
 	}
 
